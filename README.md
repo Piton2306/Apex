@@ -1,0 +1,1 @@
+git push -u origin master --команда для загрузки в гит через bash
