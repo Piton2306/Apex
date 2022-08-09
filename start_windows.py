@@ -1,53 +1,74 @@
-import pyautogui as pi
+from locators import *
 
-def icon():
+
+class IconStart:
+    def __call__(self, sleep_time=10, sleep_time_ok=1):
+        while True:
+            icon = "Apex Legends" not in pg.getAllTitles()
+            if icon:
+                pg.moveTo(loc_icon)
+                pg.doubleClick()
+                pg.sleep(sleep_time)
+            loc_ok_steam = loc_ok_steam_error
+            if loc_ok_steam:
+                pg.moveTo(loc_ok_steam_error)
+                pg.click()
+                pg.sleep(sleep_time_ok)
+            break
+
+
+def start(sleep_time=10, sleep_time_ok=1):
     while True:
-        loc = pi.locateOnScreen('screenshot\\icon.png', confidence=0.8)
-        if loc:
-            loc = pi.locateOnScreen('screenshot\\icon.png', confidence=0.8)
-            pi.moveTo(loc)
-            pi.doubleClick()
-            return True
-        pi.sleep(0.2)
+        icon = "Apex Legends" not in pg.getAllTitles()
+        if icon:
+            pg.moveTo(loc_icon)
+            pg.doubleClick()
+            pg.sleep(sleep_time)
+        if loc_ok_steam_error:
+            pg.moveTo(loc_ok_steam_error)
+            pg.click()
+            pg.sleep(sleep_time_ok)
+        pg.sleep(sleep_time_ok)
+
 
 
 def next1():
     while True:
-        loc = pi.locateOnScreen('screenshot\\next1.png', confidence=0.8)
+        loc = pg.locateOnScreen('screenshot\\next1.png', confidence=0.8)
         if loc:
-            pi.moveTo(loc)
-            pi.click()
+            pg.moveTo(loc)
+            pg.click()
             return True
-        pi.sleep(0.2)
+        pg.sleep(0.2)
 
 
 def close():
     while True:
-        loc = pi.locateOnScreen('screenshot\\close.png', confidence=0.8)
+        loc = pg.locateOnScreen('screenshot\\close.png', confidence=0.8)
         if loc:
-            pi.moveTo(loc)
-            pi.click()
+            pg.moveTo(loc)
+            pg.click()
             return True
-        pi.sleep(0.2)
+        pg.sleep(0.2)
 
 
 def run():
     while True:
-        loc = pi.locateOnScreen('screenshot\\run.png', confidence=0.8)
+        loc = pg.locateOnScreen('screenshot\\run.png', confidence=0.8)
         if loc:
-            pi.moveTo(loc)
-            pi.click()
+            pg.moveTo(loc)
+            pg.click()
             return True
-        pi.sleep(0.2)
+        pg.sleep(0.2)
 
 
 def raif():
     while True:
-        loc1 = pi.locateOnScreen('screenshot\\yes.png', confidence=0.8)
+        loc1 = pg.locateOnScreen('screenshot\\yes.png', confidence=0.8)
         if loc1:
-            loc = pi.locateOnScreen('screenshot\\raif.png', confidence=0.8)
+            loc = pg.locateOnScreen('screenshot\\raif.png', confidence=0.8)
             if loc:
-                pi.moveTo(loc)
-                pi.click()
+                pg.moveTo(loc)
+                pg.click()
                 return True
-        pi.sleep(0.2)
+        pg.sleep(0.2)
